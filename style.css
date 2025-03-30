@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'ChosunGu';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ownglyph_ParkDaHyun';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: 'ChosunGu';
+    background-color: black;
+}
+
+.title{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.container{
+    text-align: center;
+    color: white;
+    min-height: 100vh;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.input-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.task-input{
+    background-color: white;
+    min-width: 70vw;
+    outline: none;
+    border: none;
+    padding: 10px;
+}
+
+.task-input::placeholder {
+    color: gray; /* 기본 색상 */
+}
+
+.add-button{
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.add-button:active{
+    transform: scale(0.96);
+}
+
+.task-area{
+    border: 1px solid white;
+    margin-top: 2em;
+}
+
+.task-tabs{
+    display: flex;
+    border-bottom: 1px solid white;
+    position: relative;
+    justify-content: center;
+}
+
+.task-tabs div{
+    padding-block: 1em;
+    padding-inline: 3em;
+    cursor: pointer;
+    position: relative;
+    text-shadow: 0 0 5px rgb(58, 117, 98);
+}
+
+#under-line{
+    background-color: rgb(255, 0, 132);
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    filter: blur(10px);
+    transition: 0.33s;
+    display: none;
+}
+
+.task{
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-done{
+    text-align: left;
+    text-decoration: line-through;
+    color: rgb(192, 192, 192);
+    background-color: rgb(46, 46, 46);
+    flex-grow: 1;
+    padding: 1em;
+    padding-left: 1.5em;
+}
+
+.task-working{
+    text-align: left;
+    flex-grow: 1;
+    padding: 1em;
+    padding-left: 1.5em;
+}
+
+.buttons{
+    background-color: black;
+    display: flex;
+    gap: 1.5em;
+    padding: 1em;
+}
+
+.check-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.check-color1{
+    color: rgb(176, 241, 12);
+    text-shadow: 0 0 5px yellowgreen;
+}
+
+.check-color2{
+    color: rgb(170, 170, 170);
+}
+
+.delete-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.delete-color{
+    color: rgb(232, 19, 19);
+    text-shadow: 0 0 5px rgb(232, 19, 19);
+}
+
+i {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
