@@ -78,11 +78,11 @@ body{
     padding-inline: 3em;
     cursor: pointer;
     position: relative;
-    text-shadow: 0 0 5px rgb(58, 117, 98);
+    text-shadow: 0 0 2px rgb(0, 0, 0, 0.8);
 }
 
 #under-line{
-    background-color: rgb(255, 0, 132);
+    background-color: rgb(255, 255, 255);
     position: absolute;
     height: 0px;
     width: 0px;
@@ -90,7 +90,7 @@ body{
     top: 0;
     border-radius: 50%;
     filter: blur(10px);
-    transition: 0.33s;
+    transition: all 0.33s ease;
     display: none;
 }
 

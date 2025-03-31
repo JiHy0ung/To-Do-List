@@ -38,23 +38,12 @@ for(let i = 1; i < tabs.length; i++){
     tabs[i].addEventListener("click", function(event){
         filter(event);
     });
-    tabs[i].addEventListener("click", function(event){
-        Indicator(event);
-    });
 }
 
-function Indicator(event){
-    underLine.style.left = event.currentTarget.offsetLeft + "px";
-    underLine.style.width = event.currentTarget.offsetWidth + "px";
-    underLine.style.top =
-    event.currentTarget.offsetTop + event.currentTarget.offsetHeight - 42.5 + "px";
-    
-    underLine.style.display = "flex"; 
-}
 
 function enterKey(){
 
-    if(window.event.keyCode == 13){
+    if(event.keyCode == 13){
         addTask();
     }
 
@@ -94,7 +83,7 @@ function render(){
 
     if(mode === 'tab-all'){
         list = taskList;
-    }else if(mode === 'tab-working' || mode === 'tab-done'){
+    }else{
         list = filterList;
     }
 
@@ -152,7 +141,8 @@ function toggleComplete(id){
         }
     }
 
-    render();
+    filter();
+
 }
 
 function deleteTask(id){
@@ -167,31 +157,41 @@ function deleteTask(id){
         }
     }
 
+    for(let i = 0; i < filterList.length; i++){
+        if(filterList[i].id == id){
+            // 내가 짠 코드
+            // filterList.pop(filterList[i]);
+            // 강의에 나온 코드
+            filterList.splice(i, 1);
+            break;
+        }
+    }
+
     render();
     
 }
 
 function filter(event){
 
-    mode = event.target.id;
+    if(event){
+        mode = event.target.id;
+        underLine.style.left = event.currentTarget.offsetLeft + "px";
+        underLine.style.width = event.currentTarget.offsetWidth + "px";
+        underLine.style.top =
+        event.currentTarget.offsetTop + event.currentTarget.offsetHeight - 42.5 + "px";
+        
+        underLine.style.display = "flex"; 
+    }
+
     filterList = [];
 
-    if(mode === "tab-all"){
-        // 전체 리스트 보여줌.
-        render();
-
-    }else if(mode === "tab-working"){
+    if(mode === "tab-working"){
         // isComplete = false 아이템 보여줌.
         for(let i = 0; i < taskList.length; i++){
             if(taskList[i].isComplete === false){
                 filterList.push(taskList[i]);
             }
-        }
-        console.log("working", filterList)
-
-        render();
-
-        
+        } 
     }else if(mode === "tab-done"){
         // isComplete = true 아이템 보여줌.
         for(let i = 0; i < taskList.length; i++){
@@ -199,12 +199,8 @@ function filter(event){
                 filterList.push(taskList[i]);
             }
         }
-        console.log("working", filterList)
-
-        render();
-
     }
-
+    render();
 }
 
 // 객체 아이디 랜덤화
